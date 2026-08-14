@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Project Matching Engine</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+<header>
+
+    <div>
+        <h1>Project Matching Engine</h1>
+
+        <p>
+            Match interns with projects using
+            skills, availability and complexity.
+        </p>
+    </div>
+
+    <button
+        id="logoutBtn"
+        class="hidden"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+<main>
+
+<!-- ================= LOGIN ================= -->
+
+<section
+    id="authSection"
+    class="card"
+>
+
+    <h2>Login</h2>
+
+    <form id="loginForm">
+
+        <input
+            id="loginEmail"
+            type="email"
+            placeholder="Email"
+            required
+        >
+
+        <input
+            id="loginPassword"
+            type="password"
+            placeholder="Password"
+            required
+        >
+
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+
+    <hr>
+
+
+    <h2>Intern Registration</h2>
+
+    <form id="registerForm">
+
+        <input
+            id="registerName"
+            placeholder="Full Name"
+            required
+        >
+
+        <input
+            id="registerEmail"
+            type="email"
+            placeholder="Email"
+            required
+        >
+
+        <input
+            id="registerPassword"
+            type="password"
+            placeholder="Password"
+            required
+        >
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- ================= APP ================= -->
+
+<section
+    id="appSection"
+    class="hidden"
+>
+
+    <div class="welcome card">
+
+        <h2>
+            Welcome,
+            <span id="userName"></span>
+        </h2>
+
+        <p>
+            Role:
+            <strong id="userRole"></strong>
+        </p>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <h3 id="totalInterns">0</h3>
+            <p>Interns</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="totalTasks">0</h3>
+            <p>Tasks</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="totalAllocations">0</h3>
+            <p>Allocations</p>
+        </div>
+
+        <div class="stat-card">
+            <h3 id="totalHours">0</h3>
+            <p>Available Hours</p>
+        </div>
+
+    </div>
+
+
+    <!-- INTERN PROFILE -->
+
+    <section
+        id="internProfileSection"
+        class="card"
+    >
+
+        <h2>My Intern Profile</h2>
+
+        <form id="internForm">
+
+            <input
+                id="internSkills"
+                placeholder="Skills: HTML, CSS, JavaScript"
+                required
+            >
+
+            <input
+                id="internHours"
+                type="number"
+                min="0"
+                max="40"
+                placeholder="Available hours/week"
+                required
+            >
+
+            <select id="internExperience">
+
+                <option value="1">
+                    Beginner
+                </option>
+
+                <option value="2">
+                    Intermediate
+                </option>
+
+                <option value="3">
+                    Advanced
+                </option>
+
+                <option value="4">
+                    Expert
+                </option>
+
+                <option value="5">
+                    Senior
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Save Profile
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ADMIN TASK -->
+
+    <section
+        id="adminTaskSection"
+        class="card hidden"
+    >
+
+        <h2>Create Project Task</h2>
+
+        <form id="taskForm">
+
+            <input
+                id="taskTitle"
+                placeholder="Task Title"
+                required
+            >
+
+            <textarea
+                id="taskDescription"
+                placeholder="Task Description"
+            ></textarea>
+
+            <input
+                id="taskSkills"
+                placeholder="Required Skills"
+                required
+            >
+
+            <input
+                id="taskHours"
+                type="number"
+                min="1"
+                placeholder="Required Hours"
+                required
+            >
+
+            <select id="taskComplexity">
+
+                <option value="1">
+                    1 - Very Easy
+                </option>
+
+                <option value="2">
+                    2 - Easy
+                </option>
+
+                <option value="3">
+                    3 - Medium
+                </option>
+
+                <option value="4">
+                    4 - Hard
+                </option>
+
+                <option value="5">
+                    5 - Very Hard
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Create Task
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- TASK LIST -->
+
+    <section class="card">
+
+        <h2>Available Tasks</h2>
+
+        <div id="taskList"></div>
+
+    </section>
+
+
+    <!-- ALLOCATIONS -->
+
+    <section class="card">
+
+        <h2>Allocation Dashboard</h2>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Task</th>
+                        <th>Intern</th>
+                        <th>Score</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="allocationTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</section>
+
+</main>
+
+
+<div id="message"></div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
